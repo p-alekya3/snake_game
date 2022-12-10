@@ -4,6 +4,9 @@ import random
 from pygame.locals import *
 if __name__=="__main__":
     pygame.init()
+    
+    #Creating Window
+    
     Surface=pygame.display.set_mode((600,600))
     Surface.fill((53,89,11))
     pygame.display.flip()
@@ -17,7 +20,9 @@ if __name__=="__main__":
     die=False
     font=pygame.font.SysFont("bahnschrift",50)
     score=0
+    
     # Creating snake
+    
     def snake():
         global x,y,f_x,f_y,die,score
         
@@ -40,14 +45,19 @@ if __name__=="__main__":
             
 
         pygame.display.update()
+        
+    # Score on screen
+    
     def show_score(score):
-        #score==len(body_list)
+       
         msg1_font=pygame.font.SysFont("arial",25)
         msg1=msg1_font.render("Score: "+str(score),True,(255,255,255))
         Surface.blit(msg1,(0,0))
         pygame.display.update()
         time.sleep(0)
-        
+     
+    # Game over method
+    
     def game_over():
         Surface.fill((255,255,255))
         msg=font.render("GAME OVER!",True,(0,0,0))
@@ -61,13 +71,9 @@ if __name__=="__main__":
         quit()
 
         
-
+    # Running code
     
     while True:
-        """msg1_font=pygame.font.SysFont("arial",25)
-        msg1=msg1_font.render("Score: "+str(score),True,(255,255,255))
-        Surface.blit(msg1,(0,0))
-        pygame.display.update()"""
         
         
         
@@ -106,7 +112,7 @@ if __name__=="__main__":
             
             
 
-        #snake()
+       
         if(not pygame.event.get()):
             snake()
 
